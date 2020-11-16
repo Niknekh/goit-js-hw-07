@@ -7,9 +7,13 @@ const ingredients = [
   'Приправы',
 ];
 
-const list = document.querySelector('#ingredients');
-ingredients.forEach(element => {
-    let lis = document.createElement('li');
-    lis.textContent = element;
-    list.appendChild(lis);
-});
+let list = ingredients.map((value) =>
+  {
+    let item = document.createElement('li');
+    item.textContent = value;
+    return item;
+  });
+ function childList (child) {
+  return child.map(element => element.outerHTML).join('');
+}    
+document.querySelector("#ingredients").insertAdjacentHTML('afterbegin',childList (list));
