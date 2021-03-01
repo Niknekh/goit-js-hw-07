@@ -1,4 +1,6 @@
-const input = document.querySelector('#name-input');
-const output = document.querySelector('#name-output');
-input.addEventListener('input', event => event.target.value.length > 0 ? output.textContent = event.target.value : output.textContent = 'незнакомец');
+const refs = {
+    input: document.querySelector('#name-input'),
+    span: document.querySelector('#name-output')
+}
 
+refs.input.addEventListener('input', event => event.target.value.length <= 0 ? refs.span.textContent = 'незнакомец' : refs.span.textContent = event.target.value);

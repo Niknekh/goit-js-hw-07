@@ -1,4 +1,3 @@
-const rangeButt = document.querySelector('#font-size-control');
+const range = document.querySelector('#font-size-control');
 const span = document.querySelector('#text');
-rangeButt.addEventListener('input', event => span.style.fontSize = `${event.target.valueAsNumber}px`);
-
+range.addEventListener('input', event => span.style.fontSize = `${event.target.value}px`)

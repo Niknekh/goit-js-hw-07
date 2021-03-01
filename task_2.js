@@ -7,13 +7,17 @@ const ingredients = [
   'Приправы',
 ];
 
-let list = ingredients.map((value) =>
-  {
-    let item = document.createElement('li');
-    item.textContent = value;
-    return item;
-  });
- function childList (child) {
+const newingredients = ingredients.map(element => {
+  const array = document.createElement('li');
+  array.textContent = element;
+  return array;
+})
+function childList(child) {
   return child.map(element => element.outerHTML).join('');
-}    
-document.querySelector("#ingredients").insertAdjacentHTML('afterbegin',childList (list));
+    
+
+}
+
+const ul = document.querySelector('#ingredients');
+ul.insertAdjacentHTML('afterbegin', childList(newingredients))
+
