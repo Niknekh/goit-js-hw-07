@@ -6,18 +6,10 @@ const ingredients = [
   'Зелень',
   'Приправы',
 ];
-
-const newingredients = ingredients.map(element => {
-  const array = document.createElement('li');
-  array.textContent = element;
-  return array;
+const ul = document.querySelector('#ingredients')
+let list = ingredients.map(element => {
+  const newLi = document.createElement('li');
+  newLi.textContent = element;
+  return newLi;
 })
-function childList(child) {
-  return child.map(element => element.outerHTML).join('');
-    
-
-}
-
-const ul = document.querySelector('#ingredients');
-ul.insertAdjacentHTML('afterbegin', childList(newingredients))
-
+ul.insertAdjacentHTML('afterbegin', list.map(child => child.outerHTML).join(''))
