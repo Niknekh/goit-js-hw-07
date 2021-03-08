@@ -10,13 +10,31 @@ refs.render.addEventListener('click', event => createBoxes(result))
 refs.destroy.addEventListener('click', event => destroyBoxes())
 
 function createBoxes(amount) {
-    for (let i = 0; i < amount; i += 1){
-        let newDiv = document.createElement('div')
-        newDiv.style.backgroundColor = randomColor();
-        newDiv.style.width = `${30 + i* 10}px`;
-        newDiv.style.height = `${30 + i* 10}px`;
+    if (!refs.boxes.childNodes.length) {
+        for (let i = 0; i < amount; i += 1) {
+            let newDiv = document.createElement('div');
+            newDiv.style.backgroundColor = randomColor();
+        
+            newDiv.style.width = `${30 + i * 10}px`;
+            newDiv.style.height = `${30 + i * 10}px`;
+                        refs.boxes.appendChild(newDiv)
 
-        refs.boxes.appendChild(newDiv)
+        }
+    } else {
+         for (let i = 0; i < amount; i += 1) {
+            let newDiv = document.createElement('div');
+            newDiv.style.backgroundColor = randomColor();
+        
+            newDiv.style.width = `${Number.parseInt(refs.boxes.lastChild.style.width)+10 + i* 10}px`;
+             newDiv.style.height = `${Number.parseInt(refs.boxes.lastChild.style.height)+10 + i * 10}px`;
+             refs.boxes.appendChild(newDiv)
+
+        }
+   
+        
+       
+    
+       
     }
 }
 
